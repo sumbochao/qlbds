@@ -227,7 +227,13 @@ return [
         'frontend' => [
             'register-user' => [
                 'email'                     => 'E-mail Address',
-                'firstName'                 => 'First Name',
+                'phone_number'                 => 'Điện thoại',
+                'position'                 => 'Chức vụ',
+                'time_to_receive_work'                 => 'Thời gian tiếp nhận công việc',
+                'statistics_of_trained_content'                 => 'Thống kê các nội dung đã được đào tạo',
+                'matters_need_training'                 => 'Những vấn đề cần được đào tạo',
+                'desire_yourself_proposed'                 => 'Nguyện vọng bản thân, đề xuất',
+                'fullname'                 => 'Họ và tên',
                 'lastName'                  => 'Last Name',
                 'password'                  => 'Password',
                 'address'                   => 'Address',

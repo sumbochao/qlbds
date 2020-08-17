@@ -46,8 +46,13 @@ class DashboardController extends Controller
         $input = $request->all();
         $userId = access()->user()->id;
         $user = User::find($userId);
-        $user->first_name = $input['first_name'];
-        $user->last_name = $input['last_name'];
+        $user->fullname = $input['fullname'];
+        $user->position = $input['position'];
+        $user->phone_number = $input['phone_number'];
+        $user->time_to_receive_work = $input['time_to_receive_work'];
+        $user->statistics_of_trained_content = $input['statistics_of_trained_content'];
+        $user->matters_need_training = $input['matters_need_training'];
+        $user->desire_yourself_proposed = $input['desire_yourself_proposed'];
         $user->updated_by = access()->user()->id;
 
         if ($user->save()) {

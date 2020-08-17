@@ -17,16 +17,48 @@
         </div>
         <div class="box-body">
             <div class="form-group">
-                {{ Form::label('first_name', trans('validation.attributes.frontend.register-user.firstName'), ['class' => 'col-lg-2 control-label']) }}
+                {{ Form::label('fullname', trans('validation.attributes.frontend.register-user.fullname'), ['class' => 'col-lg-2 control-label']) }}
                 <div class="col-lg-10">
-                    {{ Form::input('text', 'first_name', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.frontend.register-user.firstName')]) }}
+                    {{ Form::input('text', 'fullname', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.frontend.register-user.fullname')]) }}
                 </div>
             </div>
-
             <div class="form-group">
-                {{ Form::label('last_name', trans('validation.attributes.frontend.register-user.lastName'), ['class' => 'col-lg-2 control-label']) }}
+                {{ Form::label('phone_number', trans('validation.attributes.frontend.register-user.phone_number'), ['class' => 'col-lg-2 control-label']) }}
                 <div class="col-lg-10">
-                    {{ Form::input('text', 'last_name', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.frontend.register-user.firstName')]) }}
+                    {{ Form::input('text', 'phone_number', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.frontend.register-user.phone_number')]) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ Form::label('position', trans('validation.attributes.frontend.register-user.position'), ['class' => 'col-lg-2 control-label']) }}
+                <div class="col-lg-10">
+                    {{ Form::input('text', 'position', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.frontend.register-user.position')]) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ Form::label('time_to_receive_work', trans('validation.attributes.frontend.register-user.time_to_receive_work'), ['class' => 'col-lg-2 control-label']) }}
+                <div class="col-lg-10">
+                    {{ Form::input('text', 'time_to_receive_work', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.frontend.register-user.time_to_receive_work')]) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ Form::label('statistics_of_trained_content', trans('validation.attributes.frontend.register-user.statistics_of_trained_content'), ['class' => 'col-lg-2 control-label']) }}
+                <div class="col-lg-10">
+                {!! Form::textarea('statistics_of_trained_content',null, array('class'=>'form-control', 
+                    'rows' => 10, 'cols' => 50)) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ Form::label('matters_need_training', trans('validation.attributes.frontend.register-user.matters_need_training'), ['class' => 'col-lg-2 control-label']) }}
+                <div class="col-lg-10">
+                {!! Form::textarea('matters_need_training',null, array('class'=>'form-control', 
+                    'rows' => 10, 'cols' => 50)) !!}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ Form::label('desire_yourself_proposed', trans('validation.attributes.frontend.register-user.desire_yourself_proposed'), ['class' => 'col-lg-2 control-label']) }}
+                <div class="col-lg-10">
+                {!! Form::textarea('desire_yourself_proposed',null, array('class'=>'form-control', 
+                    'rows' => 10, 'cols' => 50)) !!}
                 </div>
             </div>
 
