@@ -32,7 +32,7 @@ class ModuleRepository extends BaseRepository
                 'modules.view_permission_id',
                 'modules.created_by',
                 'modules.updated_by',
-                'users.first_name as created_by',
+                'users.fullname as created_by',
             ]);
     }
 
