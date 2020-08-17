@@ -22,23 +22,7 @@
             </div><!-- /.box-header -->
 
             <div class="box-body">
-                {{-- First Name --}}
-                <div class="form-group">
-                    {{ Form::label('First Name', trans('validation.attributes.backend.access.users.firstName'), ['class' => 'col-lg-2 control-label required']) }}
-
-                    <div class="col-lg-10">
-                        {{ Form::text('first_name', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.firstName'), 'required' => 'required']) }}
-                    </div><!--col-lg-10-->
-                </div><!--form control-->
-
-                {{-- Last Name --}}
-                <div class="form-group">
-                    {{ Form::label('Last Name', trans('validation.attributes.backend.access.users.lastName'), ['class' => 'col-lg-2 control-label required']) }}
-
-                    <div class="col-lg-10">
-                        {{ Form::text('last_name', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.lastName'), 'required' => 'required']) }}
-                    </div><!--col-lg-10-->
-                </div><!--form control-->
+                
 
                 {{-- Email --}}
                 <div class="form-group">
@@ -66,6 +50,31 @@
                         {{ Form::password('password_confirmation', ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.password_confirmation'), 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
+                {{-- Full Name --}}
+                <div class="form-group">
+                    {{ Form::label('Họ Tên', trans('validation.attributes.backend.access.users.fullname'), ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('fullname', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.fullname'), 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+                {{-- Phone Number --}}
+                <div class="form-group">
+                    {{ Form::label('Điện thoại', trans('validation.attributes.backend.access.users.phone_number'), ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('phone_number', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.phone_number'), 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+                {{-- Chức vụ --}}
+                <div class="form-group">
+                    {{ Form::label('Chức vụ', trans('validation.attributes.backend.access.users.position'), ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('position', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.position'), 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+               
 
                 {{-- Status --}}
                 <div class="form-group">
