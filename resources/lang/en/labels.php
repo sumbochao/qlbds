@@ -83,7 +83,7 @@ return [
                     'email'          => 'E-mail',
                     'id'             => 'ID',
                     'last_updated'   => 'Last Updated',
-                    'first_name'     => 'First Name',
+                    'fullname'     => 'Họ và tên',
                     'last_name'      => 'Last Name',
                     'no_deactivated' => 'No Deactivated Users',
                     'no_deleted'     => 'No Deleted Users',

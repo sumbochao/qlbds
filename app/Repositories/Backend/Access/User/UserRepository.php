@@ -64,8 +64,7 @@ class UserRepository extends BaseRepository
             ->leftJoin('roles', 'role_user.role_id', '=', 'roles.id')
             ->select([
                 config('access.users_table').'.id',
-                config('access.users_table').'.first_name',
-                config('access.users_table').'.last_name',
+                config('access.users_table').'.fullname',
                 config('access.users_table').'.email',
                 config('access.users_table').'.status',
                 config('access.users_table').'.confirmed',
@@ -392,8 +391,9 @@ class UserRepository extends BaseRepository
     {
         $user = self::MODEL;
         $user = new $user();
-        $user->first_name = $input['first_name'];
-        $user->last_name = $input['last_name'];
+        $user->fullname = $input['fullname'];
+        $user->position = $input['position'];
+        $user->department_id = $input['department_id'];
         $user->email = $input['email'];
         $user->password = Hash::make($input['password']);
         $user->status = isset($input['status']) ? 1 : 0;
