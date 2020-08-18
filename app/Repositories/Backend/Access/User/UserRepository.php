@@ -10,7 +10,6 @@ use App\Events\Backend\Access\User\UserPermanentlyDeleted;
 use App\Events\Backend\Access\User\UserReactivated;
 use App\Events\Backend\Access\User\UserRestored;
 use App\Events\Backend\Access\User\UserUpdated;
-use App\Models\UsersMapDepartment\UsersMapDepartment;
 use App\Exceptions\GeneralException;
 use App\Models\Access\User\User;
 use App\Notifications\Frontend\Auth\UserNeedsConfirmation;
@@ -49,7 +48,7 @@ class UserRepository extends BaseRepository
     }
 
     /**
-     * @param int  $status
+     * @param int $status
      * @param bool $trashed
      *
      * @return mixed
@@ -63,17 +62,19 @@ class UserRepository extends BaseRepository
         $dataTableQuery = $this->query()
             ->leftJoin('role_user', 'role_user.user_id', '=', 'users.id')
             ->leftJoin('roles', 'role_user.role_id', '=', 'roles.id')
-            ->select([
-                config('access.users_table').'.id',
-                config('access.users_table').'.fullname',
-                config('access.users_table').'.email',
-                config('access.users_table').'.status',
-                config('access.users_table').'.confirmed',
-                config('access.users_table').'.created_at',
-                config('access.users_table').'.updated_at',
-                config('access.users_table').'.deleted_at',
-                DB::raw('GROUP_CONCAT(roles.name) as roles'),
-            ])
+            ->select(
+                [
+                    config('access.users_table').'.id',
+                    config('access.users_table').'.fullname',
+                    config('access.users_table').'.email',
+                    config('access.users_table').'.status',
+                    config('access.users_table').'.confirmed',
+                    config('access.users_table').'.created_at',
+                    config('access.users_table').'.updated_at',
+                    config('access.users_table').'.deleted_at',
+                    DB::raw('GROUP_CONCAT(roles.name) as roles'),
+                ]
+            )
             ->groupBy('users.id');
 
         if ($trashed == 'true') {
@@ -91,48 +92,45 @@ class UserRepository extends BaseRepository
      */
     public function create($request)
     {
-       // dd($request);
         $data = $request->except('assignees_roles', 'permissions');
         $roles = $request->get('assignees_roles');
         $permissions = $request->get('permissions');
         $user = $this->createUserStub($data);
         $departmentsArray = $this->createCategories($request->get('departments'));
-        //unset($input['tags'], $input['categories']);
-       // dd($departmentsArray);
         $this->checkUserByEmail($data, $user);
+        DB::transaction(
+            function () use ($user, $data, $roles, $permissions, $departmentsArray) {
+                if ($user->save()) {
+                    // Inserting associated department's id in mapper table
+                    if (count($departmentsArray) > 0) {
+                        $user->department()->sync($departmentsArray);
+                    }
+                    //User Created, Validate Roles
+                    if (!count($roles)) {
+                        throw new GeneralException(trans('exceptions.backend.access.users.role_needed_create'));
+                    }
 
-        DB::transaction(function () use ($user, $data, $roles, $permissions,$departmentsArray) {
-            if ($user->save()) {
-               
-           //     dd($departmentsArray);
-                // Inserting associated department's id in mapper table
-                if (count($departmentsArray) > 0) {
-                    $user->department()->sync($departmentsArray);
+                    //Attach new roles
+                    $user->attachRoles($roles);
+
+                    // Attach New Permissions
+                    $user->attachPermissions($permissions);
+
+                    //Send confirmation email if requested and account approval is off
+                    if (isset($data['confirmation_email']) && $user->confirmed == 0) {
+                        $user->notify(new UserNeedsConfirmation($user->confirmation_code));
+                    }
+
+                    event(new UserCreated($user));
+
+                    return true;
                 }
-                //User Created, Validate Roles
-                if (!count($roles)) {
-                    throw new GeneralException(trans('exceptions.backend.access.users.role_needed_create'));
-                }
 
-                //Attach new roles
-                $user->attachRoles($roles);
-
-                // Attach New Permissions
-                $user->attachPermissions($permissions);
-
-                //Send confirmation email if requested and account approval is off
-                if (isset($data['confirmation_email']) && $user->confirmed == 0) {
-                    $user->notify(new UserNeedsConfirmation($user->confirmation_code));
-                }
-
-                event(new UserCreated($user));
-
-                return true;
+                throw new GeneralException(trans('exceptions.backend.access.users.create_error'));
             }
-
-            throw new GeneralException(trans('exceptions.backend.access.users.create_error'));
-        });
+        );
     }
+
     /**
      * Creating Categories.
      *
@@ -148,7 +146,7 @@ class UserRepository extends BaseRepository
         foreach ($categories as $category) {
             if (is_numeric($category)) {
                 $categories_array[] = $category;
-            } 
+            }
         }
 
         return $categories_array;
@@ -158,9 +156,9 @@ class UserRepository extends BaseRepository
      * @param Model $user
      * @param $request
      *
+     * @return bool
      * @throws GeneralException
      *
-     * @return bool
      */
     public function update($user, $request)
     {
@@ -170,24 +168,26 @@ class UserRepository extends BaseRepository
 
         $this->checkUserByEmail($data, $user);
 
-        DB::transaction(function () use ($user, $data, $roles, $permissions) {
-            if ($user->update($data)) {
-                $user->status = isset($data['status']) && $data['status'] == '1' ? 1 : 0;
-                $user->confirmed = isset($data['confirmed']) && $data['confirmed'] == '1' ? 1 : 0;
+        DB::transaction(
+            function () use ($user, $data, $roles, $permissions) {
+                if ($user->update($data)) {
+                    $user->status = isset($data['status']) && $data['status'] == '1' ? 1 : 0;
+                    $user->confirmed = isset($data['confirmed']) && $data['confirmed'] == '1' ? 1 : 0;
 
-                $user->save();
+                    $user->save();
 
-                $this->checkUserRolesCount($roles);
-                $this->flushRoles($roles, $user);
+                    $this->checkUserRolesCount($roles);
+                    $this->flushRoles($roles, $user);
 
-                $this->flushPermissions($permissions, $user);
-                event(new UserUpdated($user));
+                    $this->flushPermissions($permissions, $user);
+                    event(new UserUpdated($user));
 
-                return true;
+                    return true;
+                }
+
+                throw new GeneralException(trans('exceptions.backend.access.users.update_error'));
             }
-
-            throw new GeneralException(trans('exceptions.backend.access.users.update_error'));
-        });
+        );
     }
 
     /**
@@ -196,9 +196,9 @@ class UserRepository extends BaseRepository
      * @param $user
      * @param $input
      *
+     * @return bool
      * @throws GeneralException
      *
-     * @return bool
      */
     public function updatePassword($user, $input)
     {
@@ -224,9 +224,9 @@ class UserRepository extends BaseRepository
      *
      * @param Model $user
      *
+     * @return bool
      * @throws GeneralException
      *
-     * @return bool
      */
     public function delete($user)
     {
@@ -248,9 +248,9 @@ class UserRepository extends BaseRepository
      *
      * @param Model $user
      *
+     * @return bool
      * @throws GeneralException
      *
-     * @return bool
      */
     public function deleteAll($ids)
     {
@@ -282,23 +282,25 @@ class UserRepository extends BaseRepository
             throw new GeneralException(trans('exceptions.backend.access.users.delete_first'));
         }
 
-        DB::transaction(function () use ($user) {
-            if ($user->forceDelete()) {
-                event(new UserPermanentlyDeleted($user));
+        DB::transaction(
+            function () use ($user) {
+                if ($user->forceDelete()) {
+                    event(new UserPermanentlyDeleted($user));
 
-                return true;
+                    return true;
+                }
+
+                throw new GeneralException(trans('exceptions.backend.access.users.delete_error'));
             }
-
-            throw new GeneralException(trans('exceptions.backend.access.users.delete_error'));
-        });
+        );
     }
 
     /**
      * @param $user
      *
+     * @return bool
      * @throws GeneralException
      *
-     * @return bool
      */
     public function restore($user)
     {
@@ -319,9 +321,9 @@ class UserRepository extends BaseRepository
      * @param $user
      * @param $status
      *
+     * @return bool
      * @throws GeneralException
      *
-     * @return bool
      */
     public function mark($user, $status)
     {
@@ -335,12 +337,12 @@ class UserRepository extends BaseRepository
             case 0:
                 event(new UserDeactivated($user));
 
-            break;
+                break;
 
             case 1:
                 event(new UserReactivated($user));
 
-            break;
+                break;
         }
 
         if ($user->save()) {
@@ -354,9 +356,9 @@ class UserRepository extends BaseRepository
      * @param  $input
      * @param  $user
      *
+     * @return null
      * @throws GeneralException
      *
-     * @return null
      */
     protected function checkUserByEmail($input, $user = null)
     {
@@ -444,9 +446,12 @@ class UserRepository extends BaseRepository
             $permissions = [$permissions];
         }
 
-        return $this->query()->whereHas('roles.permissions', function ($query) use ($permissions, $by) {
-            $query->whereIn('permissions.'.$by, $permissions);
-        })->get();
+        return $this->query()->whereHas(
+            'roles.permissions',
+            function ($query) use ($permissions, $by) {
+                $query->whereIn('permissions.'.$by, $permissions);
+            }
+        )->get();
     }
 
     /**
@@ -461,8 +466,11 @@ class UserRepository extends BaseRepository
             $roles = [$roles];
         }
 
-        return $this->query()->whereHas('roles', function ($query) use ($roles, $by) {
-            $query->whereIn('roles.'.$by, $roles);
-        })->get();
+        return $this->query()->whereHas(
+            'roles',
+            function ($query) use ($roles, $by) {
+                $query->whereIn('roles.'.$by, $roles);
+            }
+        )->get();
     }
 }

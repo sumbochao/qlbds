@@ -3,13 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2a8b47bf-f048-4af1-af4a-f70e8ac2c2c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Backend/Access/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Backend/Access/User/UserRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -190,6 +191,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597717167187</updated>
       <workItem from="1597717169022" duration="1297000" />
+      <workItem from="1597734843281" duration="1167000" />
     </task>
     <servers />
   </component>
