@@ -150,7 +150,7 @@ return [
                     'fullname' => 'Họ và tên',
                     'phone_number' => 'Điện thoại',
                     'position' => 'Chức vụ',
-                    'firstName' => 'First Name',
+                    'departments' => 'Phòng',
                     'firstName' => 'First Name',
                     'firstName' => 'First Name',
                     'firstName' => 'First Name',

@@ -18,7 +18,7 @@ class CreateResponse implements Responsable
     public function __construct($roles,$departments)
     {
         $this->roles = $roles;
-        $this->departments = $$departments;
+        $this->departments = $departments;
     }
 
     /**

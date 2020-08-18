@@ -6,8 +6,8 @@ use App\Models\ModelTrait;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Department\Traits\DepartmentAttribute;
 use App\Models\Department\Traits\DepartmentRelationship;
-
-class Department extends Model
+use App\Models\BaseModel;
+class Department extends BaseModel
 {
     use ModelTrait,
         DepartmentAttribute,

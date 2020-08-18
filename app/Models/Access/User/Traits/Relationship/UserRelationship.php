@@ -4,7 +4,7 @@ namespace App\Models\Access\User\Traits\Relationship;
 
 use App\Models\Access\User\SocialLogin;
 use App\Models\System\Session;
-
+use App\Models\UsersMapDepartment\UsersMapDepartment;
 /**
  * Class UserRelationship.
  */
@@ -18,6 +18,11 @@ trait UserRelationship
     public function roles()
     {
         return $this->belongsToMany(config('access.role'), config('access.role_user_table'), 'user_id', 'role_id');
+    }
+
+    public function department(){
+        return $this->belongsToMany(UsersMapDepartment::class, 'users_map_department', 'user_id', 'department_id');
+       // return $this->belongsToMany(config('access.role'), config('access.role_user_table'), 'user_id', 'role_id');
     }
 
     /**

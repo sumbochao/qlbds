@@ -10,6 +10,7 @@ use App\Events\Backend\Access\User\UserPermanentlyDeleted;
 use App\Events\Backend\Access\User\UserReactivated;
 use App\Events\Backend\Access\User\UserRestored;
 use App\Events\Backend\Access\User\UserUpdated;
+use App\Models\UsersMapDepartment\UsersMapDepartment;
 use App\Exceptions\GeneralException;
 use App\Models\Access\User\User;
 use App\Notifications\Frontend\Auth\UserNeedsConfirmation;
@@ -90,16 +91,24 @@ class UserRepository extends BaseRepository
      */
     public function create($request)
     {
+       // dd($request);
         $data = $request->except('assignees_roles', 'permissions');
         $roles = $request->get('assignees_roles');
         $permissions = $request->get('permissions');
         $user = $this->createUserStub($data);
-
+        $departmentsArray = $this->createCategories($request->get('departments'));
+        //unset($input['tags'], $input['categories']);
+       // dd($departmentsArray);
         $this->checkUserByEmail($data, $user);
 
-        DB::transaction(function () use ($user, $data, $roles, $permissions) {
+        DB::transaction(function () use ($user, $data, $roles, $permissions,$departmentsArray) {
             if ($user->save()) {
-
+               
+           //     dd($departmentsArray);
+                // Inserting associated department's id in mapper table
+                if (count($departmentsArray) > 0) {
+                    $user->department()->sync($departmentsArray);
+                }
                 //User Created, Validate Roles
                 if (!count($roles)) {
                     throw new GeneralException(trans('exceptions.backend.access.users.role_needed_create'));
@@ -123,6 +132,26 @@ class UserRepository extends BaseRepository
 
             throw new GeneralException(trans('exceptions.backend.access.users.create_error'));
         });
+    }
+    /**
+     * Creating Categories.
+     *
+     * @param Array($categories)
+     *
+     * @return array
+     */
+    public function createCategories($categories)
+    {
+        //Creating a new array for categories (newly created)
+        $categories_array = [];
+
+        foreach ($categories as $category) {
+            if (is_numeric($category)) {
+                $categories_array[] = $category;
+            } 
+        }
+
+        return $categories_array;
     }
 
     /**
@@ -393,7 +422,6 @@ class UserRepository extends BaseRepository
         $user = new $user();
         $user->fullname = $input['fullname'];
         $user->position = $input['position'];
-        $user->department_id = $input['department_id'];
         $user->email = $input['email'];
         $user->password = Hash::make($input['password']);
         $user->status = isset($input['status']) ? 1 : 0;
