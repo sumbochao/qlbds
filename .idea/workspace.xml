@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a8b47bf-f048-4af1-af4a-f70e8ac2c2c3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/alerts.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/alerts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/buttons.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/buttons.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/exceptions.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/exceptions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/history.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/history.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/http.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/http.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/labels.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/labels.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/menus.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/menus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/navs.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/navs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/pagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/roles.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/roles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/access/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/access/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/access/users/deactivated.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/access/users/deactivated.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/access/users/deleted.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/access/users/deleted.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/access/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/access/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/access/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/access/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/access/users/profile-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/access/users/profile-edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,6 +173,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -207,7 +189,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597717167187</updated>
-      <workItem from="1597717169022" duration="680000" />
+      <workItem from="1597717169022" duration="1297000" />
     </task>
     <servers />
   </component>

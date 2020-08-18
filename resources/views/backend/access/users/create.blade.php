@@ -76,16 +76,16 @@
             </div><!--form control-->
             {{-- Phòng --}}
             <div class="form-group">
-        {{ Form::label('categories', trans('validation.attributes.backend.users.category'), ['class' => 'col-lg-2 control-label required']) }}
+                {{ Form::label('categories', trans('validation.attributes.backend.users.category'), ['class' => 'col-lg-2 control-label required']) }}
 
-        <div class="col-lg-10">
-        @if(!empty($selectedCategories))
-            {{ Form::select('categories[]', $blogCategories, $selectedCategories, ['class' => 'form-control tags box-size', 'required' => 'required', 'multiple' => 'multiple']) }}
-        @else
-            {{ Form::select('categories[]', $blogCategories, null, ['class' => 'form-control tags box-size', 'required' => 'required', 'multiple' => 'multiple']) }}
-        @endif
-        </div><!--col-lg-10-->
-    </div><!--form control-->
+                <div class="col-lg-10">
+                    @if(!empty($selectedCategories))
+                        {{ Form::select('categories[]', $blogCategories, $selectedCategories, ['class' => 'form-control tags box-size', 'required' => 'required', 'multiple' => 'multiple']) }}
+                    @else
+                        {{ Form::select('categories[]', $blogCategories, null, ['class' => 'form-control tags box-size', 'required' => 'required', 'multiple' => 'multiple']) }}
+                    @endif
+                </div><!--col-lg-10-->
+            </div><!--form control-->
 
 
             {{-- Status --}}
