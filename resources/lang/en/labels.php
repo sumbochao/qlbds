@@ -240,7 +240,7 @@ return [
             "create" => "Create Department",
             "edit" => "Edit Department",
             "management" => "Phân nhóm, phòng chức năng",
-            "title" => "Departments",
+            "title" => "Tên nhóm (Phòng)",
             "table" => [
                 "id" => "Id",
                 "name" => "Nhóm/Phòng",
