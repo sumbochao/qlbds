@@ -9,9 +9,9 @@
 @endsection
 
 @section('content')
-	{{ Form::model($logged_in_user, ['route' => 'admin.profile.update', 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
+    {{ Form::model($logged_in_user, ['route' => 'admin.profile.update', 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-     <div class="box box-info">
+    <div class="box box-info">
         <div class="box-header with-border">
             <h3 class="box-title">{{ trans('labels.backend.access.users.edit-profile') }}</h3>
         </div>
@@ -43,22 +43,22 @@
             <div class="form-group">
                 {{ Form::label('statistics_of_trained_content', trans('validation.attributes.frontend.register-user.statistics_of_trained_content'), ['class' => 'col-lg-2 control-label']) }}
                 <div class="col-lg-10">
-                {!! Form::textarea('statistics_of_trained_content',null, array('class'=>'form-control', 
-                    'rows' => 10, 'cols' => 50)) !!}
+                    {!! Form::textarea('statistics_of_trained_content',null, array('class'=>'form-control',
+                        'rows' => 10, 'cols' => 50)) !!}
                 </div>
             </div>
             <div class="form-group">
                 {{ Form::label('matters_need_training', trans('validation.attributes.frontend.register-user.matters_need_training'), ['class' => 'col-lg-2 control-label']) }}
                 <div class="col-lg-10">
-                {!! Form::textarea('matters_need_training',null, array('class'=>'form-control', 
-                    'rows' => 10, 'cols' => 50)) !!}
+                    {!! Form::textarea('matters_need_training',null, array('class'=>'form-control',
+                        'rows' => 10, 'cols' => 50)) !!}
                 </div>
             </div>
             <div class="form-group">
                 {{ Form::label('desire_yourself_proposed', trans('validation.attributes.frontend.register-user.desire_yourself_proposed'), ['class' => 'col-lg-2 control-label']) }}
                 <div class="col-lg-10">
-                {!! Form::textarea('desire_yourself_proposed',null, array('class'=>'form-control', 
-                    'rows' => 10, 'cols' => 50)) !!}
+                    {!! Form::textarea('desire_yourself_proposed',null, array('class'=>'form-control',
+                        'rows' => 10, 'cols' => 50)) !!}
                 </div>
             </div>
 
@@ -69,13 +69,13 @@
             </div>
         </div>
     </div>
-{{ Form::close() }}
+    {{ Form::close() }}
 @endsection
 @section('after-scripts')
 
-<script type="text/javascript">
-    $(document).ready(function() {
+    <script type="text/javascript">
+      $(document).ready(function() {
         Backend.Profile.init();
-    });
-</script>
+      });
+    </script>
 @endsection
