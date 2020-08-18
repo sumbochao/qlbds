@@ -243,7 +243,9 @@ return [
             "title" => "Departments",
             "table" => [
                 "id" => "Id",
-                "createdat" => "Created At",
+                "name" => "Nhóm/Phòng",
+                "number_of_members" => "Số lượng thành viên",
+                "createdat" => "Ngày tạo",
             ],
         ],
     ],

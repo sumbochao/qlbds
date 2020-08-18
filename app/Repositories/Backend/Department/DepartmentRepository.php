@@ -30,6 +30,8 @@ class DepartmentRepository extends BaseRepository
         return $this->query()
             ->select([
                 config('module.departments.table').'.id',
+                config('module.departments.table').'.name',
+                config('module.departments.table').'.number_of_members',
                 config('module.departments.table').'.created_at',
                 config('module.departments.table').'.updated_at',
             ]);
