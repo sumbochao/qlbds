@@ -120,6 +120,15 @@ class UserRepository extends BaseRepository
                     if (isset($data['confirmation_email']) && $user->confirmed == 0) {
                         $user->notify(new UserNeedsConfirmation($user->confirmation_code));
                     }
+                    $departments = DB::table('departments')->get();
+                    foreach($departments as $key => $value){
+                        $numberOfMembers = DB::table('users_map_department')
+                        ->where('department_id', $value->id)
+                        ->count();
+                        DB::table('departments')
+                            ->where('id', $value->id)
+                            ->update(['number_of_members' => $numberOfMembers]);
+                    }
 
                     event(new UserCreated($user));
 
@@ -180,7 +189,15 @@ class UserRepository extends BaseRepository
                     $user->confirmed = isset($data['confirmed']) && $data['confirmed'] == '1' ? 1 : 0;
 
                     $user->save();
-
+                    $departments = DB::table('departments')->get();
+                    foreach($departments as $key => $value){
+                        $numberOfMembers = DB::table('users_map_department')
+                        ->where('department_id', $value->id)
+                        ->count();
+                        DB::table('departments')
+                            ->where('id', $value->id)
+                            ->update(['number_of_members' => $numberOfMembers]);
+                    }
                     $this->checkUserRolesCount($roles);
                     $this->flushRoles($roles, $user);
 
