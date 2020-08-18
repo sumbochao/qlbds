@@ -33,7 +33,7 @@ class BlogCategoriesRepository extends BaseRepository
                 config('module.blog_categories.table').'.status',
                 config('module.blog_categories.table').'.created_by',
                 config('module.blog_categories.table').'.created_at',
-                config('access.users_table').'.first_name as user_name',
+                config('access.users_table').'.fullname as user_name',
             ]);
     }
 

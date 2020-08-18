@@ -56,7 +56,7 @@ class BlogsRepository extends BaseRepository
                 config('module.blogs.table').'.status',
                 config('module.blogs.table').'.created_by',
                 config('module.blogs.table').'.created_at',
-                config('access.users_table').'.first_name as user_name',
+                config('access.users_table').'.fullname as user_name',
             ]);
     }
 

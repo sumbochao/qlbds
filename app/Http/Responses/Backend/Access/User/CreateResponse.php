@@ -10,13 +10,15 @@ class CreateResponse implements Responsable
      * @var \App\Models\Access\Role\Role
      */
     protected $roles;
+    protected $departments;
 
     /**
      * @param \Illuminate\Database\Eloquent\Collection $roles
      */
-    public function __construct($roles)
+    public function __construct($roles,$departments)
     {
         $this->roles = $roles;
+        $this->departments = $$departments;
     }
 
     /**
@@ -30,6 +32,7 @@ class CreateResponse implements Responsable
     {
         return view('backend.access.users.create')->with([
             'roles' => $this->roles,
+            'departments' => $this->departments
         ]);
     }
 }

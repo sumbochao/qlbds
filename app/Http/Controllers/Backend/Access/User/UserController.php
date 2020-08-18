@@ -17,6 +17,7 @@ use App\Http\Responses\RedirectResponse;
 use App\Http\Responses\ViewResponse;
 use App\Models\Access\Permission\Permission;
 use App\Models\Access\User\User;
+use App\Models\Department\Department;
 use App\Repositories\Backend\Access\Role\RoleRepository;
 use App\Repositories\Backend\Access\User\UserRepository;
 
@@ -63,8 +64,9 @@ class UserController extends Controller
     public function create(CreateUserRequest $request)
     {
         $roles = $this->roles->getAll();
+        $departments = Department::getSelectData();
 
-        return new CreateResponse($roles);
+        return new CreateResponse($roles,$departments);
     }
 
     /**
