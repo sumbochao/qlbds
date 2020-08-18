@@ -2,7 +2,7 @@
 
 use App\Models\Access\Permission\Permission;
 use App\Models\Access\Role\Role;
-
+use App\Models\Department\Department;
 return [
     /*
      * Users table used to store users
@@ -39,6 +39,8 @@ return [
      * permission_user table used by Access to save relationship between permissions and users to the database.
      */
     'permission_user_table' => 'permission_user',
+    'department' => Department::class,
+    'department_user_table' => 'users_map_department',
 
     /*
      * role_user table used by Access to save assigned roles to the database.

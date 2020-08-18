@@ -165,13 +165,18 @@ class UserRepository extends BaseRepository
         $data = $request->except('assignees_roles', 'permissions');
         $roles = $request->get('assignees_roles');
         $permissions = $request->get('permissions');
-
+        $departmentsArray = $this->createCategories($request->get('departments'));
         $this->checkUserByEmail($data, $user);
 
         DB::transaction(
-            function () use ($user, $data, $roles, $permissions) {
+            function () use ($user, $data, $roles, $permissions, $departmentsArray) {
                 if ($user->update($data)) {
+                     // Inserting associated department's id in mapper table
+                    if (count($departmentsArray) > 0) {
+                        $user->department()->sync($departmentsArray);
+                    }
                     $user->status = isset($data['status']) && $data['status'] == '1' ? 1 : 0;
+                    $user->phone_number = isset($data['phone_number']) && $data['phone_number']  ? $data['phone_number'] : 0;
                     $user->confirmed = isset($data['confirmed']) && $data['confirmed'] == '1' ? 1 : 0;
 
                     $user->save();
@@ -425,6 +430,7 @@ class UserRepository extends BaseRepository
         $user->fullname = $input['fullname'];
         $user->position = $input['position'];
         $user->email = $input['email'];
+        $user->phone_number = $input['phone_number'];
         $user->password = Hash::make($input['password']);
         $user->status = isset($input['status']) ? 1 : 0;
         $user->confirmation_code = md5(uniqid(mt_rand(), true));

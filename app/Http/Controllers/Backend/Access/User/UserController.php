@@ -42,6 +42,7 @@ class UserController extends Controller
      */
     public function __construct(UserRepository $users, RoleRepository $roles)
     {
+        set_time_limit(300);
         $this->users = $users;
         $this->roles = $roles;
     }
@@ -102,8 +103,9 @@ class UserController extends Controller
     {
         $roles = $this->roles->getAll();
         $permissions = Permission::getSelectData('display_name');
+        $departments = Department::getSelectData();
 
-        return new EditResponse($user, $roles, $permissions);
+        return new EditResponse($user, $roles, $permissions, $departments);
     }
 
     /**

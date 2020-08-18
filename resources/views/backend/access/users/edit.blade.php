@@ -56,6 +56,18 @@
                     {{ Form::text('position', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.position'), 'required' => 'required']) }}
                 </div><!--col-lg-10-->
             </div><!--form control-->
+            {{-- Phòng --}}
+            <div class="form-group">
+                {{ Form::label('departments', trans('validation.attributes.backend.access.users.departments'), ['class' => 'col-lg-2 control-label required']) }}
+
+                <div class="col-lg-10">
+                    @if(!empty($selectedCategories))
+                        {{ Form::select('departments[]', $departments, $selectedCategories, ['class' => 'form-control tags box-size', 'required' => 'required', 'multiple' => 'multiple']) }}
+                    @else
+                        {{ Form::select('departments[]', $departments, null, ['class' => 'form-control tags box-size', 'required' => 'required', 'multiple' => 'multiple']) }}
+                    @endif
+                </div><!--col-lg-10-->
+            </div><!--form control-->
 
             {{-- Status --}}
             @if ($user->id != 1)

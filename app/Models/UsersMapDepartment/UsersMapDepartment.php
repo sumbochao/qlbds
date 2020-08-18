@@ -8,6 +8,7 @@ class UsersMapDepartment extends BaseModel
 {
    
     protected $table = 'users_map_department';
+    protected $fillable = ['user_id', 'department_id'];
 
     public function __construct(array $attributes = [])
     {

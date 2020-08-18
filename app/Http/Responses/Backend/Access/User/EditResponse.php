@@ -20,15 +20,17 @@ class EditResponse implements Responsable
      * @var \App\Models\Access\Role\Role
      */
     protected $roles;
+    protected $departments;
 
     /**
      * @param \App\Models\Access\User\User $user
      */
-    public function __construct($user, $roles, $permissions)
+    public function __construct($user, $roles, $permissions,$departments)
     {
         $this->user = $user;
         $this->roles = $roles;
         $this->permissions = $permissions;
+        $this->departments = $departments;
     }
 
     /**
@@ -42,10 +44,13 @@ class EditResponse implements Responsable
     {
         $permissions = $this->permissions;
         $userPermissions = $this->user->permissions()->get()->pluck('id')->toArray();
+        $selectedDepartments = $this->user->department->pluck('id')->toArray();
 
         return view('backend.access.users.edit')->with([
             'user'            => $this->user,
             'userRoles'       => $this->user->roles->pluck('id')->all(),
+            'departments' =>  $this->departments,
+            'selectedCategories' => $selectedDepartments,
             'roles'           => $this->roles,
             'userPermissions' => $userPermissions,
             'permissions'     => $permissions,
