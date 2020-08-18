@@ -239,7 +239,7 @@ return [
         "departments" => [
             "create" => "Create Department",
             "edit" => "Edit Department",
-            "management" => "Department Management",
+            "management" => "Phân nhóm, phòng chức năng",
             "title" => "Departments",
             "table" => [
                 "id" => "Id",
