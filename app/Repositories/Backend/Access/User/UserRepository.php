@@ -171,12 +171,12 @@ class UserRepository extends BaseRepository
         DB::transaction(
             function () use ($user, $data, $roles, $permissions, $departmentsArray) {
                 if ($user->update($data)) {
-                     // Inserting associated department's id in mapper table
+                    // Inserting associated department's id in mapper table
                     if (count($departmentsArray) > 0) {
                         $user->department()->sync($departmentsArray);
                     }
                     $user->status = isset($data['status']) && $data['status'] == '1' ? 1 : 0;
-                    $user->phone_number = isset($data['phone_number']) && $data['phone_number']  ? $data['phone_number'] : 0;
+                    $user->phone_number = isset($data['phone_number']) && $data['phone_number'] ? $data['phone_number'] : 0;
                     $user->confirmed = isset($data['confirmed']) && $data['confirmed'] == '1' ? 1 : 0;
 
                     $user->save();
