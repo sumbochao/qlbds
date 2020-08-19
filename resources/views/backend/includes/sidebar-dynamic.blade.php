@@ -12,7 +12,7 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
 
-                <li class="{{ active_class(Active::checkUriPattern('admin/dashboard')) }}">
+                <li>
                     <a href="{{ route('admin.dashboard') }}">
                         <i class="fa fa-dashboard"></i>
                         <span>{{ trans('menus.backend.sidebar.dashboard') }}</span>
