@@ -6,12 +6,15 @@
         <!-- Logo -->
         <!-- ============================================================== -->
         <div class="navbar-header">
-             <a href="{{ route('frontend.index') }}" class="logo">
+            {{-- <a href="{{ route('frontend.index') }}" class="logo">
                  <!-- mini logo for sidebar mini 50x50 pixels -->
                  <span class="logo-mini">
             {{ substr(app_name(), 0, 1) }}
          </span>
-             </a>
+             </a>--}}
+            <span class="logo-mini">
+            {{ substr(app_name(), 0, 1) }}
+         </span>
 
         </div>
         <!-- ============================================================== -->
