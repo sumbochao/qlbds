@@ -117,7 +117,7 @@
                                 <div class="message-center">
                                     <!-- Message -->
                                     <a href="javascript:void(0)">
-                                        <div class="user-img"><img src="assets/images/users/1.jpg" alt="user"
+                                        <div class="user-img"><img src="{{ access()->user()->picture }}" alt="user"
                                                                    class="img-circle"> <span
                                                     class="profile-status online float-right"></span></div>
                                         <div class="mail-contnet">
@@ -314,41 +314,31 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                src="assets/images/users/1.jpg" alt="user" class="img-circle" width="30"></a>
+                                src="{{ access()->user()->picture }}" alt="user" class="img-circle" width="30"></a>
                     <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                         <span class="with-arrow"><span class="bg-primary"></span></span>
                         <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
-                            <div class=""><img src="assets/images/users/1.jpg" alt="user" class="img-circle" width="60">
+                            <div class=""><img src="{{ access()->user()->picture }}" alt="user" class="img-circle" width="60">
                             </div>
                             <div class="m-l-10">
-                                <h4 class="m-b-0">Steave Jobs</h4>
+                                <h4 class="m-b-0">{{ access()->user()->fullname }}</h4>
                                 <p class=" m-b-0"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                     data-cfemail="fe889f8c8b90be99939f9792d09d9193">[email&#160;protected]</a>
+                                                     data-cfemail="fe889f8c8b90be99939f9792d09d9193">{{ access()->user()->email }}</a>
                                 </p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My
+                        <a class="dropdown-item" href="{!! route('admin.profile.edit') !!}"><i class="ti-user m-r-5 m-l-5"></i> Edit
                             Profile</a>
-                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My
-                            Balance</a>
+                        <a class="dropdown-item" href="{!! route('admin.access.user.change-password',[access()->user()->id]) !!}"><i class="ti-wallet m-r-5 m-l-5"></i>Change Password</a>
                         <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
                             Inbox</a>
+
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i>
-                            Account Setting</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i>
+                        <a class="dropdown-item" href="{!! route('admin.profile.edit') !!}"><i class="fa fa-power-off m-r-5 m-l-5"></i>
                             Logout</a>
                         <div class="dropdown-divider"></div>
-                        <div class="p-l-30 p-10"><a href="javascript:void(0)"
-                                                    class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
                     </div>
                 </li>
-                <!-- ============================================================== -->
-                <!-- User profile and search -->
-                <!-- ============================================================== -->
-                <li class="nav-item right-side-toggle"><a class="nav-link  waves-effect waves-light"
-                                                          href="javascript:void(0)"><i class="ti-settings"></i></a></li>
             </ul>
         </div>
     </nav>
