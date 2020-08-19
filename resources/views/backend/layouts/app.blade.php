@@ -120,8 +120,7 @@
                 class="jq-toast-loader jq-toast-loaded"
                 style="-webkit-transition: width 3.1s ease-in;                       -o-transition: width 3.1s ease-in;                       transition: width 3.1s ease-in;                       background-color: #ff6849;"></span><span
                 class="close-jq-toast-single">×</span>
-        <h2 class="jq-toast-heading">Welcome to Elegent Admin</h2>Use the predefined ones, or specify a custom position
-        object.
+        <h2 class="jq-toast-heading">Welcome to {{ substr(app_name(), 0, 1) }}</h2>
     </div>
 </div>
 <!-- JavaScripts -->
