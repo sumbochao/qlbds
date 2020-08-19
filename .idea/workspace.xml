@@ -4,6 +4,8 @@
     <list default="true" id="2a8b47bf-f048-4af1-af4a-f70e8ac2c2c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/Backend/Access/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Backend/Access/User/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/bvipul/generator/src/Repositories/ModuleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/bvipul/generator/src/Repositories/ModuleRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,11 +194,19 @@
       <updated>1597717167187</updated>
       <workItem from="1597717169022" duration="1297000" />
       <workItem from="1597734843281" duration="1167000" />
-      <workItem from="1597748832726" duration="639000" />
+      <workItem from="1597748832726" duration="2042000" />
+      <workItem from="1597764118847" duration="669000" />
+      <workItem from="1597799190093" duration="2701000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597803986279">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860/1600.0.1920.1040@0.0.1600.860" timestamp="1597803986279" />
   </component>
 </project>
