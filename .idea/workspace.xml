@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2a8b47bf-f048-4af1-af4a-f70e8ac2c2c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Backend/Access/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Backend/Access/User/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/includes/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/includes/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/bvipul/generator/src/Repositories/ModuleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/bvipul/generator/src/Repositories/ModuleRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +195,7 @@
       <workItem from="1597734843281" duration="1167000" />
       <workItem from="1597748832726" duration="2042000" />
       <workItem from="1597764118847" duration="669000" />
-      <workItem from="1597799190093" duration="2701000" />
+      <workItem from="1597799190093" duration="3668000" />
     </task>
     <servers />
   </component>
