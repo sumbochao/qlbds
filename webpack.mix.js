@@ -21,16 +21,13 @@ mix.sass('resources/assets/sass/frontend/app.scss', 'public/css/frontend.css')
         'public/js/select2/select2.css',
         'public/css/bootstrap.min.css',
         'public/css/custom-style.css',
-        'public/css/custom.css',
-        'public/themeadminnew/css/morris.css',
-        'public/themeadminnew/css/jquery.toast.css',
-        'public/themeadminnew/css/c3.min.css',
-        'public/themeadminnew/css/style.min.css',
-        'public/themeadminnew/css/dashboard1.css',
         'public/css/loader.css',
         'public/css/bootstrap-datetimepicker.min.css',
         'client/build/client-modules.min.css',
     ], 'public/css/backend-custom.css')
+    .styles([
+        'public/css/custom.css'
+    ], 'public/css/custom.css')
     .js([
         'resources/assets/js/frontend/app.js',
         'resources/assets/js/plugin/sweetalert/sweetalert.min.js',
@@ -52,21 +49,7 @@ mix.sass('resources/assets/sass/frontend/app.scss', 'public/css/frontend.css')
         "public/js/bootstrap-datetimepicker.min.js",
         "public/js/backend/custom-file-input.js",
         "public/js/backend/notification.js",
-        "public/themeadminnew/js/jquery-3.2.1.min.js",
-        "public/themeadminnew/js/popper.min.js",
-        "public/themeadminnew/js/bootstrap.min.js",
-        "public/themeadminnew/js/perfect-scrollbar.jquery.min.js",
-        "public/themeadminnew/js/waves.js",
-        "public/themeadminnew/js/sidebarmenu.js",
-        "public/themeadminnew/js/custom.min.js",
-        "public/themeadminnew/js/raphael.min.js",
-        "public/themeadminnew/js/morris.min.js",
-        "public/themeadminnew/js/jquery.sparkline.min.js",
-        "public/themeadminnew/js/d3.min.js",
-        "public/themeadminnew/js/c3.min.js",
-        "public/themeadminnew/js/jquery.toast.js",
-        "public/themeadminnew/js/dashboard1.js",
-        "public/js/backend/admin.js",
+        "public/js/backend/admin.js"
     ], 'public/js/backend-custom.js')
     //Datatable js
     .scripts([

@@ -1,5 +1,7 @@
 #!/bin/bash
 # My first script
+chmod -R a+x node_modules
+npm run development
 sudo find . -type d -exec chmod 775 {} \;
 sudo find . -type f -exec chmod 664 {} \;
 sudo chmod -R ug+rwx  bootstrap/cache
@@ -8,3 +10,4 @@ sudo chown -Rf johnnguyencodedao:johnnguyencodedao *
 php artisan config:cache
 chmod 777 -Rf storage
 chmod 777 -Rf storage/*
+chmod -R a+x node_modules

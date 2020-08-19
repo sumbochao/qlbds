@@ -1,71 +1,78 @@
-<!-- Topbar header - style you can find in pages.scss -->
-<!-- ============================================================== -->
-<header class="topbar">
-    <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-        <!-- ============================================================== -->
-        <!-- Logo -->
-        <!-- ============================================================== -->
-        <div class="navbar-header">
-            <a href="{{ route('frontend.index') }}" class="navbar-brand">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">
-           {{ substr(app_name(), 0, 1) }}
-        </span>
+<header class="main-header">
 
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">
+    <a href="{{ route('frontend.index') }}" class="navbar-brand">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <!-- <span class="logo-mini">
+           {{ substr(app_name(), 0, 1) }}
+        </span> -->
+
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">
            {{--  @php
                  $settings = settings();
             @endphp
             @if($settings->logo)
                 <img height="48" width="226" class="dark-logo" src="{{route('frontend.index')}}/img/site_logo/{{$settings->logo}}">
             @else --}}
-                    {{ app_name() }}
-                    {{--  @endif --}}
+                {{ app_name() }}
+           {{--  @endif --}}
         </span>
-            </a>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Logo -->
-        <!-- ============================================================== -->
-        <div class="navbar-collapse">
-            <!-- ============================================================== -->
-            <!-- toggle and nav items -->
-            <!-- ============================================================== -->
-            <ul class="navbar-nav mr-auto">
-            </ul>
-            <ul class="navbar-nav my-lg-0">
-                <!-- ============================================================== -->
-                <!-- User profile and search -->
-                <!-- ============================================================== -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                src="{{ access()->user()->picture }}" alt="user" class="img-circle" width="30"></a>
-                    <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                        <span class="with-arrow"><span class="bg-primary"></span></span>
-                        <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
-                            <div class=""><img src="{{ access()->user()->picture }}" alt="user" class="img-circle" width="60">
+    </a>
+
+    <nav class="navbar navbar-static-top" role="navigation">
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">{{ trans('labels.general.toggle_navigation') }}</span>
+        </a>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{{ access()->user()->picture }}" class="user-image" alt="User Avatar"/>
+                        <span class="hidden-xs">{{ access()->user()->first_name }}</span>
+                        <div class="clearfix"></div>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="user-header">
+                            <img src="{{ access()->user()->picture }}" class="img-circle" alt="User Avatar" />
+                            <p>
+                                {{-- access()->user()->name }} - {{ implode(", ", access()->user()->roles->lists('name')->toArray()) --}}
+                                <small>{{ trans('strings.backend.general.member_since') }} {{ access()->user()->created_at->format("m/d/Y") }}</small>
+                            </p>
+                        </li>
+
+                        <li class="user-body">
+                            <div class="col-xs-12 text-center">
+                                {{ link_to_route("admin.profile.edit", 'Edit Profile') }}
                             </div>
-                            <div class="m-l-10">
-                                <h4 class="m-b-0">{{ access()->user()->fullname }}</h4>
-                                <p class=" m-b-0"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                     data-cfemail="fe889f8c8b90be99939f9792d09d9193">{{ access()->user()->email }}</a>
-                                </p>
+                        </li>
+                        <li class="user-body border-left">
+                            <div class="col-xs-12 text-center">
+                                {{ link_to_route('admin.access.user.change-password','Change Password', access()->user()->id) }}
                             </div>
-                        </div>
-                        <a class="dropdown-item" href="{!! route('admin.profile.edit') !!}"><i class="ti-user m-r-5 m-l-5"></i> Edit
-                            Profile</a>
-                        <a class="dropdown-item" href="{!! route('admin.access.user.change-password',[access()->user()->id]) !!}"><i class="ti-wallet m-r-5 m-l-5"></i>Change Password</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{!! route('frontend.auth.logout') !!}"><i class="fa fa-power-off m-r-5 m-l-5"></i>
-                            Logout</a>
-                        <div class="dropdown-divider"></div>
-                    </div>
+                            {{-- <div class="col-xs-4 text-center">
+                                {{ link_to_route('dashboard', 'Link') }}
+                            </div> --}}
+                        </li>
+
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="{!! route('frontend.index') !!}" class="btn btn-default btn-flat">
+                                    <i class="fa fa-home"></i>
+                                    {{ trans('navs.general.home') }}
+                                </a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="{!! route('frontend.auth.logout') !!}" class="btn btn-danger btn-flat">
+                                    <i class="fa fa-sign-out"></i>
+                                    {{ trans('navs.general.logout') }}
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-        </div>
+        </div><!-- /.navbar-custom-menu -->
     </nav>
 </header>
-<!-- ============================================================== -->
-<!-- End Topbar header -->

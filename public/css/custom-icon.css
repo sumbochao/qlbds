@@ -1,0 +1,5 @@
+.fixed-layout #main-wrapper .topbar {
+    position: fixed;
+    width: 100%;
+    height: 66px;
+}
