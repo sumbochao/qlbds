@@ -22,5 +22,10 @@ class UserUpdated
     public function __construct($user)
     {
         $this->user = $user;
+       // dd($this->user->id);
+    }
+
+    public function updateSoThanhVien(){
+       
     }
 }
