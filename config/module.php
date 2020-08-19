@@ -26,4 +26,7 @@ return [
 	"documents" => [
 	"table" => "documents",
 	],
+	"streets" => [
+	"table" => "streets",
+	],
 ];

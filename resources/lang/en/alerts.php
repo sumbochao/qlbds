@@ -64,5 +64,10 @@ return [
 	"deleted" => "The Document was successfully deleted.",
 	"updated" => "The Document was successfully updated.",
 	],
+	"streets" => [
+	"created" => "The Street was successfully created.",
+	"deleted" => "The Street was successfully deleted.",
+	"updated" => "The Street was successfully updated.",
+	],
 	],
 ];

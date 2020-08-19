@@ -258,6 +258,16 @@ return [
 	"createdat" => "Created At",
 	],
 	],
+	"streets" => [
+	"create" => "Create Street",
+	"edit" => "Edit Street",
+	"management" => "Street Management",
+	"title" => "Streets",
+	"table" => [
+	"id" => "Id",
+	"createdat" => "Created At",
+	],
+	],
 	],
 	"frontend" => [
 	"auth" => [

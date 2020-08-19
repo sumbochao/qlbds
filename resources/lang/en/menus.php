@@ -122,6 +122,13 @@ return [
 	"management" => "Document Management",
 	"main" => "Documents",
 	],
+	"streets" => [
+	"all" => "All Streets",
+	"create" => "Create Street",
+	"edit" => "Edit Street",
+	"management" => "Street Management",
+	"main" => "Streets",
+	],
 	],
 	"language-picker" => [
 	"language" => "Language",
