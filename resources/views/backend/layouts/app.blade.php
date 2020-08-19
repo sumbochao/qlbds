@@ -1,33 +1,33 @@
 <!doctype html>
 <html class="no-js" lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        {{-- <link rel="icon" sizes="16x16" type="image/png" href="{{route('frontend.index')}}/img/favicon_icon/{{settings()->favicon}}"> --}}
-        <title>@yield('title', app_name())</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- <link rel="icon" sizes="16x16" type="image/png" href="{{route('frontend.index')}}/img/favicon_icon/{{settings()->favicon}}"> --}}
+    <title>@yield('title', app_name())</title>
 
-        <!-- Meta -->
-        <meta name="description" content="@yield('meta_description', 'Default Description')">
-        <meta name="author" content="@yield('meta_author', 'Viral Solani')">
-        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-        @yield('meta')
+    <!-- Meta -->
+    <meta name="description" content="@yield('meta_description', 'Default Description')">
+    <meta name="author" content="@yield('meta_author', 'Viral Solani')">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    @yield('meta')
 
-        <!-- Styles -->
-        @yield('before-styles')
+<!-- Styles -->
+    @yield('before-styles')
 
-        <!-- Check if the language is set to RTL, so apply the RTL layouts -->
-        <!-- Otherwise apply the normal LTR layouts -->
-        @langrtl
-            {{ Html::style(getRtlCss(mix('css/backend.css'))) }}
-        @else
-            {{ Html::style(mix('css/backend.css')) }}
+<!-- Check if the language is set to RTL, so apply the RTL layouts -->
+    <!-- Otherwise apply the normal LTR layouts -->
+    @langrtl
+    {{ Html::style(getRtlCss(mix('css/backend.css'))) }}
+    @else
+        {{ Html::style(mix('css/backend.css')) }}
         @endlangrtl
         {{ Html::style(mix('css/backend-custom.css')) }}
         @yield('after-styles')
 
-        <!-- Html5 Shim and Respond.js IE8 support of Html5 elements and media queries -->
+    <!-- Html5 Shim and Respond.js IE8 support of Html5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
         {{ Html::script('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') }}
@@ -36,16 +36,16 @@
 
         <!-- Scripts -->
         <script>
-            window.Laravel = {!! json_encode([ 'csrfToken' => csrf_token() ]) !!};
+          window.Laravel = {!! json_encode([ 'csrfToken' => csrf_token() ]) !!};
         </script>
         <?php
-            if (!empty($google_analytics)) {
-                echo $google_analytics;
-            }
+        if (!empty($google_analytics)) {
+            echo $google_analytics;
+        }
         ?>
     </head>
     <body class="horizontal-nav skin-megna-dark fixed-layout" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
-     <!-- ============================================================== -->
+          <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->
 <!-- ============================================================== -->
 <div class="preloader" style="display: none;">
@@ -2155,6 +2155,37 @@
 <!-- ============================================================== -->
 <!-- End Wrapper -->
 <!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap popper Core JavaScript -->
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="js/perfect-scrollbar.jquery.min.js"></script>
+<!--Wave Effects -->
+<script src="js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="js/sidebarmenu.js"></script>
+<!--Custom JavaScript -->
+<script src="js/custom.min.js"></script>
+<!-- ============================================================== -->
+<!-- This page plugins -->
+<!-- ============================================================== -->
+<!--morris JavaScript -->
+<script src="js/raphael.min.js"></script>
+<script src="js/morris.min.js"></script>
+<script src="js/jquery.sparkline.min.js"></script>
+<!--c3 JavaScript -->
+<script src="js/d3.min.js"></script>
+<script src="js/c3.min.js"></script>
+<!-- Popup message jquery -->
+<script src="js/jquery.toast.js"></script>
+<!-- Chart JS -->
+<script src="js/dashboard1.js"></script>
+
+
 <div class="jq-toast-wrap top-right">
   <div class="jq-toast-single jq-has-icon jq-icon-info" style="text-align: left; display: none;"><span
       class="jq-toast-loader jq-toast-loaded"

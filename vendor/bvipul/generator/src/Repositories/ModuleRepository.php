@@ -23,17 +23,22 @@ class ModuleRepository extends BaseRepository
      */
     public function getForDataTable()
     {
-        return $this->query()
-            ->leftjoin('users', 'users.id', '=', 'modules.created_by')
-            ->select([
-                'modules.id',
-                'modules.name',
-                'modules.url',
-                'modules.view_permission_id',
-                'modules.created_by',
-                'modules.updated_by',
-                'users.fullname as created_by',
-            ]);
+        try {
+            return $this->query()
+                ->leftjoin('users', 'users.id', '=', 'modules.created_by')
+                ->select([
+                    'modules.id',
+                    'modules.name',
+                    'modules.url',
+                    'modules.view_permission_id',
+                    'modules.created_by',
+                    'modules.updated_by',
+                    'users.fullname as created_by',
+                ]);
+        } catch (\Exception $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
     }
 
     /**
@@ -45,35 +50,40 @@ class ModuleRepository extends BaseRepository
      */
     public function create(array $input, array $permissions)
     {
-        $module = Module::where('name', $input['name'])->first();
-        
-        if (!$module) {
-            $name = $input['model_name'];
-            $model = strtolower($name);
+        try {
+            $module = Module::where('name', $input['name'])->first();
 
-            foreach ($permissions as $permission) {
-                $perm = [
-                    'name'         => $permission,
-                    'display_name' => Str::title(str_replace('-', ' ', $permission)).' Permission',
+            if (!$module) {
+                $name = $input['model_name'];
+                $model = strtolower($name);
+
+                foreach ($permissions as $permission) {
+                    $perm = [
+                        'name'         => $permission,
+                        'display_name' => Str::title(str_replace('-', ' ', $permission)).' Permission',
+                    ];
+                    //Creating Permission
+                    $per = Permission::firstOrCreate($perm);
+                }
+
+                $mod = [
+                    'view_permission_id' => "view-$model-permission",
+                    'name'               => $input['name'],
+                    'url'                => 'admin.'.Str::plural($model).'.index',
+                    'created_by'         => access()->user()->id,
                 ];
-                //Creating Permission
-                $per = Permission::firstOrCreate($perm);
+
+                $create = Module::create($mod);
+
+                return $create;
+            } else {
+                return $module;
             }
 
-            $mod = [
-                'view_permission_id' => "view-$model-permission",
-                'name'               => $input['name'],
-                'url'                => 'admin.'.Str::plural($model).'.index',
-                'created_by'         => access()->user()->id,
-            ];
-
-            $create = Module::create($mod);
-
-            return $create;
-        } else {
-            return $module;
+            throw new GeneralException('There was some error in creating the Module. Please Try Again.');
+        } catch (\Exception $exception) {
+            return back()->withError($exception->getMessage())->withInput();
         }
 
-        throw new GeneralException('There was some error in creating the Module. Please Try Again.');
     }
 }
