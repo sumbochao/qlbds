@@ -23,4 +23,7 @@ return [
 	"departments" => [
 	"table" => "departments",
 	],
+	"documents" => [
+	"table" => "documents",
+	],
 ];
