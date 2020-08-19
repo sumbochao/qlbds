@@ -334,7 +334,7 @@
                             Inbox</a>
 
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{!! route('admin.profile.edit') !!}"><i class="fa fa-power-off m-r-5 m-l-5"></i>
+                        <a class="dropdown-item" href="{!! route('frontend.auth.logout') !!}"><i class="fa fa-power-off m-r-5 m-l-5"></i>
                             Logout</a>
                         <div class="dropdown-divider"></div>
                     </div>
