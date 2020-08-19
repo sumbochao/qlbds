@@ -330,9 +330,6 @@
                         <a class="dropdown-item" href="{!! route('admin.profile.edit') !!}"><i class="ti-user m-r-5 m-l-5"></i> Edit
                             Profile</a>
                         <a class="dropdown-item" href="{!! route('admin.access.user.change-password',[access()->user()->id]) !!}"><i class="ti-wallet m-r-5 m-l-5"></i>Change Password</a>
-                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
-                            Inbox</a>
-
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{!! route('frontend.auth.logout') !!}"><i class="fa fa-power-off m-r-5 m-l-5"></i>
                             Logout</a>
