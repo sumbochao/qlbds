@@ -99,6 +99,27 @@ return [
 	"not_found" => "That Street does not exist.",
 	"update_error" => "There was a problem updating this Street. Please try again.",
 	],
+	"provinces" => [
+	"already_exists" => "That Province already exists. Please choose a different name.",
+	"create_error" => "There was a problem creating this Province. Please try again.",
+	"delete_error" => "There was a problem deleting this Province. Please try again.",
+	"not_found" => "That Province does not exist.",
+	"update_error" => "There was a problem updating this Province. Please try again.",
+	],
+	"districts" => [
+	"already_exists" => "That District already exists. Please choose a different name.",
+	"create_error" => "There was a problem creating this District. Please try again.",
+	"delete_error" => "There was a problem deleting this District. Please try again.",
+	"not_found" => "That District does not exist.",
+	"update_error" => "There was a problem updating this District. Please try again.",
+	],
+	"wards" => [
+	"already_exists" => "That Ward already exists. Please choose a different name.",
+	"create_error" => "There was a problem creating this Ward. Please try again.",
+	"delete_error" => "There was a problem deleting this Ward. Please try again.",
+	"not_found" => "That Ward does not exist.",
+	"update_error" => "There was a problem updating this Ward. Please try again.",
+	],
 	],
 	"frontend" => [
 	"auth" => [

@@ -29,4 +29,13 @@ return [
 	"streets" => [
 	"table" => "streets",
 	],
+	"provinces" => [
+	"table" => "provinces",
+	],
+	"districts" => [
+	"table" => "districts",
+	],
+	"wards" => [
+	"table" => "wards",
+	],
 ];

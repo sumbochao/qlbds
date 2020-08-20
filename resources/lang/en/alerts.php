@@ -69,5 +69,20 @@ return [
 	"deleted" => "The Street was successfully deleted.",
 	"updated" => "The Street was successfully updated.",
 	],
+	"provinces" => [
+	"created" => "The Province was successfully created.",
+	"deleted" => "The Province was successfully deleted.",
+	"updated" => "The Province was successfully updated.",
+	],
+	"districts" => [
+	"created" => "The District was successfully created.",
+	"deleted" => "The District was successfully deleted.",
+	"updated" => "The District was successfully updated.",
+	],
+	"wards" => [
+	"created" => "The Ward was successfully created.",
+	"deleted" => "The Ward was successfully deleted.",
+	"updated" => "The Ward was successfully updated.",
+	],
 	],
 ];

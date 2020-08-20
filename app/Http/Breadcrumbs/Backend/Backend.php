@@ -20,3 +20,6 @@ require __DIR__.'/LogViewer.php';
 require __DIR__.'/Department.php';
 require __DIR__.'/Document.php';
 require __DIR__.'/Street.php';
+require __DIR__.'/Province.php';
+require __DIR__.'/District.php';
+require __DIR__.'/Ward.php';

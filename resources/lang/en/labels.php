@@ -1,15 +1,15 @@
 <?php
 return [
 	"general" => [
-	"all" => "All",
+	"all" => "Tất cả",
 	"yes" => "Yes",
 	"no" => "No",
 	"custom" => "Custom",
-	"actions" => "Actions",
+	"actions" => "Hành động",
 	"active" => "Active",
 	"buttons" => [
-	"save" => "Save",
-	"update" => "Update",
+	"save" => "Lưu",
+	"update" => "Cập nhật",
 	],
 	"hide" => "Hide",
 	"inactive" => "Inactive",
@@ -80,7 +80,7 @@ return [
 	"overview" => [
 	"avatar" => "Avatar",
 	"confirmed" => "Confirmed",
-	"created_at" => "Created At",
+	"created_at" => "Ngày tạo",
 	"deleted_at" => "Deleted At",
 	"email" => "E-mail",
 	"last_updated" => "Last Updated",
@@ -100,7 +100,7 @@ return [
 	"table" => [
 	"title" => "Title",
 	"status" => "Status",
-	"createdat" => "Created At",
+	"createdat" => "Ngày tạo",
 	"updatedat" => "Updated At",
 	"createdby" => "Created By",
 	"all" => "All",
@@ -114,7 +114,7 @@ return [
 	"table" => [
 	"title" => "Blog Category",
 	"status" => "Status",
-	"createdat" => "Created At",
+	"createdat" => "Ngày tạo",
 	"createdby" => "Created By",
 	"all" => "All",
 	],
@@ -127,7 +127,7 @@ return [
 	"table" => [
 	"title" => "Blog Tag",
 	"status" => "Status",
-	"createdat" => "Created At",
+	"createdat" => "Ngày tạo",
 	"createdby" => "Created By",
 	"all" => "All",
 	],
@@ -141,7 +141,7 @@ return [
 	"title" => "Blog",
 	"publish" => "PublishDateTime",
 	"status" => "Status",
-	"createdat" => "Created At",
+	"createdat" => "Ngày tạo",
 	"createdby" => "Created By",
 	"all" => "All",
 	],
@@ -166,7 +166,7 @@ return [
 	"title" => "FAQs",
 	"publish" => "PublishDateTime",
 	"status" => "Status",
-	"createdat" => "Created At",
+	"createdat" => "Ngày tạo",
 	"createdby" => "Created By",
 	"answer" => "Answer",
 	"question" => "Question",
@@ -182,7 +182,7 @@ return [
 	"table" => [
 	"name" => "Name",
 	"type" => "Type",
-	"createdat" => "Created At",
+	"createdat" => "Ngày tạo",
 	"createdby" => "Created By",
 	"all" => "All",
 	],
@@ -258,7 +258,7 @@ return [
 	"id" => "Id",
 	"name" => "Tên văn bản",
 	"link_document" => "Đường dẫn tải văn bản",
-	"createdat" => "Created At",
+	"createdat" => "Ngày tạo",
 	],
 	],
 	"streets" => [
@@ -268,7 +268,39 @@ return [
 	"title" => "Streets",
 	"table" => [
 	"id" => "Id",
-	"createdat" => "Created At",
+	"createdat" => "Ngày tạo",
+	],
+	],
+	"provinces" => [
+	"create" => "Create Province",
+	"edit" => "Edit Province",
+	"management" => "Province Management",
+	"title" => "Provinces",
+	"name" => "Tên tỉnh thành",
+	"table" => [
+	"id" => "Id",
+	"name" => "Tên tỉnh thành",
+	"createdat" => "Ngày tạo",
+	],
+	],
+	"districts" => [
+	"create" => "Create District",
+	"edit" => "Edit District",
+	"management" => "District Management",
+	"title" => "Districts",
+	"table" => [
+	"id" => "Id",
+	"createdat" => "Ngày tạo",
+	],
+	],
+	"wards" => [
+	"create" => "Create Ward",
+	"edit" => "Edit Ward",
+	"management" => "Ward Management",
+	"title" => "Wards",
+	"table" => [
+	"id" => "Id",
+	"createdat" => "Ngày tạo",
 	],
 	],
 	],
@@ -314,7 +346,7 @@ return [
 	],
 	"profile" => [
 	"avatar" => "Avatar",
-	"created_at" => "Created At",
+	"created_at" => "Ngày tạo",
 	"edit_information" => "Edit Information",
 	"email" => "E-mail",
 	"last_updated" => "Last Updated",

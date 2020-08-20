@@ -129,6 +129,27 @@ return [
 	"management" => "Street Management",
 	"main" => "Streets",
 	],
+	"provinces" => [
+	"all" => "All Provinces",
+	"create" => "Create Province",
+	"edit" => "Edit Province",
+	"management" => "Province Management",
+	"main" => "Provinces",
+	],
+	"districts" => [
+	"all" => "All Districts",
+	"create" => "Create District",
+	"edit" => "Edit District",
+	"management" => "District Management",
+	"main" => "Districts",
+	],
+	"wards" => [
+	"all" => "All Wards",
+	"create" => "Create Ward",
+	"edit" => "Edit Ward",
+	"management" => "Ward Management",
+	"main" => "Wards",
+	],
 	],
 	"language-picker" => [
 	"language" => "Language",
