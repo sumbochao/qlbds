@@ -72,10 +72,19 @@ class DocumentRepository extends BaseRepository
      */
     public function update(Document $document, array $input)
     {
-    	if ($document->update($input))
-            return true;
+        // Uploading file
+        if (array_key_exists('link_document', $input)) {
+            $this->deleteOldFile($document);
+            $input = $this->uploadImage($input);
+        }
 
-        throw new GeneralException(trans('exceptions.backend.documents.update_error'));
+        DB::transaction(function () use ($document, $input) {
+            if ($document->update($input)) {
+                return true;
+            }
+
+            throw new GeneralException(trans('exceptions.backend.documents.update_error'));
+        });
     }
 
     /**
@@ -106,7 +115,7 @@ class DocumentRepository extends BaseRepository
         $avatar = $input['link_document'];
 
         if (isset($input['link_document']) && !empty($input['link_document'])) {
-            $fileName = time().$avatar->getClientOriginalName();
+            $fileName = time().'_'.$avatar->getClientOriginalName();
 
             $this->storage->put($this->upload_path.$fileName, file_get_contents($avatar->getRealPath()));
 
@@ -114,6 +123,9 @@ class DocumentRepository extends BaseRepository
 
             return $input;
         }
+
+
+
     }
 
     /**
@@ -123,7 +135,7 @@ class DocumentRepository extends BaseRepository
      */
     public function deleteOldFile($model)
     {
-        $fileName = $model->featured_image;
+        $fileName = $model->link_document;
 
         return $this->storage->delete($this->upload_path.$fileName);
     }

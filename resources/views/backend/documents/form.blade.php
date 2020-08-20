@@ -12,9 +12,10 @@
     </div><!--form-group-->
     <div class="form-group">
         {{ Form::label('link_document', trans('validation.attributes.backend.documents.link_document'), ['class' => 'col-lg-2 control-label required']) }}
-        @if(!empty($blog->link_document))
+        @if(!empty($documents->link_document))
             <div class="col-lg-1">
-                <img src="{{ Storage::disk('public')->url('img/link_document/' . $blog->link_document) }}" height="80" width="80">
+                <a href="{{ Storage::disk('public')->url('img/link_document/' . $documents->link_document) }}">{{$documents->link_document}}</a>
+                <!-- <img src="{{ Storage::disk('public')->url('img/link_document/' . $documents->link_document) }}" height="80" width="80"> -->
             </div>
             <div class="col-lg-5">
                 <div class="custom-file-input">
