@@ -22,6 +22,8 @@
                     <thead>
                         <tr>
                             <th>{{ trans('labels.backend.documents.table.id') }}</th>
+                            <th>{{ trans('labels.backend.documents.table.name') }}</th>
+                            <th>{{ trans('labels.backend.documents.table.link_document') }}</th>
                             <th>{{ trans('labels.backend.documents.table.createdat') }}</th>
                             <th>{{ trans('labels.general.actions') }}</th>
                         </tr>
@@ -61,6 +63,8 @@
                 },
                 columns: [
                     {data: 'id', name: '{{config('module.documents.table')}}.id'},
+                    {data: 'name', name: '{{config('module.documents.table')}}.name'},
+                    {data: 'link_document', name: '{{config('module.documents.table')}}.link_document'},
                     {data: 'created_at', name: '{{config('module.documents.table')}}.created_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],

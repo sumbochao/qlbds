@@ -252,9 +252,12 @@ return [
 	"create" => "Create Document",
 	"edit" => "Edit Document",
 	"management" => "Document Management",
-	"title" => "Documents",
+	"name" => "Tên văn bản",
+	"link_document" => "Đường dẫn tải văn bản",
 	"table" => [
 	"id" => "Id",
+	"name" => "Tên văn bản",
+	"link_document" => "Đường dẫn tải văn bản",
 	"createdat" => "Created At",
 	],
 	],

@@ -182,7 +182,10 @@ return [
                 'title' => 'Blog Tag',
                 'is_active' => 'Active',
             ],
-
+            'documents' => [
+                'link_document' => 'Tài liệu',
+                'is_active' => 'Active',
+            ],
             'blogs' => [
                 'title' => 'Blog Title',
                 'category' => 'Blog Category',

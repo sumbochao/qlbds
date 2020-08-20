@@ -2,14 +2,35 @@
     <div class="form-group">
         <!-- Create Your Field Label Here -->
         <!-- Look Below Example for reference -->
-        {{-- {{ Form::label('name', trans('labels.backend.blogs.title'), ['class' => 'col-lg-2 control-label required']) }} --}}
+        {{ Form::label('name', trans('labels.backend.documents.name'), ['class' => 'col-lg-2 control-label required']) }} 
 
         <div class="col-lg-10">
             <!-- Create Your Input Field Here -->
             <!-- Look Below Example for reference -->
-            {{-- {{ Form::text('name', null, ['class' => 'form-control box-size', 'placeholder' => trans('labels.backend.blogs.title'), 'required' => 'required']) }} --}}
+           {{ Form::text('name', null, ['class' => 'form-control box-size', 'placeholder' => trans('labels.backend.documents.name'), 'required' => 'required']) }}
         </div><!--col-lg-10-->
     </div><!--form-group-->
+    <div class="form-group">
+        {{ Form::label('link_document', trans('validation.attributes.backend.documents.link_document'), ['class' => 'col-lg-2 control-label required']) }}
+        @if(!empty($blog->link_document))
+            <div class="col-lg-1">
+                <img src="{{ Storage::disk('public')->url('img/link_document/' . $blog->link_document) }}" height="80" width="80">
+            </div>
+            <div class="col-lg-5">
+                <div class="custom-file-input">
+                    <input type="file" name="link_document" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files selected" />
+                    <label for="file-1"><i class="fa fa-upload"></i><span>Choose a file</span></label>
+                </div>
+            </div>
+        @else
+            <div class="col-lg-5">
+                <div class="custom-file-input">
+                        <input type="file" name="link_document" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files selected" />
+                        <label for="file-1"><i class="fa fa-upload"></i><span>Choose a file</span></label>
+                </div>
+            </div>
+        @endif
+    </div><!--form control-->
 </div><!--box-body-->
 
 @section("after-scripts")

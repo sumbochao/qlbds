@@ -8,7 +8,7 @@ use App\Models\Document\Document;
 use App\Exceptions\GeneralException;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Storage;
 /**
  * Class DocumentRepository.
  */
@@ -18,7 +18,14 @@ class DocumentRepository extends BaseRepository
      * Associated Repository Model.
      */
     const MODEL = Document::class;
+    protected $upload_path;
+    protected $storage;
 
+    public function __construct()
+    {
+        $this->upload_path = 'img'.DIRECTORY_SEPARATOR.'link_document'.DIRECTORY_SEPARATOR;
+        $this->storage = Storage::disk('public');
+    }
     /**
      * This method is used by Table Controller
      * For getting the table data to show in
@@ -30,6 +37,8 @@ class DocumentRepository extends BaseRepository
         return $this->query()
             ->select([
                 config('module.documents.table').'.id',
+                config('module.documents.table').'.name',
+                config('module.documents.table').'.link_document',
                 config('module.documents.table').'.created_at',
                 config('module.documents.table').'.updated_at',
             ]);
@@ -44,10 +53,13 @@ class DocumentRepository extends BaseRepository
      */
     public function create(array $input)
     {
-        if (Document::create($input)) {
-            return true;
-        }
-        throw new GeneralException(trans('exceptions.backend.documents.create_error'));
+        DB::transaction(function () use ($input) {
+            $input = $this->uploadImage($input);
+            if (Document::create($input)) {
+                return true;
+            }
+            throw new GeneralException(trans('exceptions.backend.documents.create_error'));
+        });
     }
 
     /**
@@ -80,5 +92,39 @@ class DocumentRepository extends BaseRepository
         }
 
         throw new GeneralException(trans('exceptions.backend.documents.delete_error'));
+    }
+
+    /**
+     * Upload Image.
+     *
+     * @param array $input
+     *
+     * @return array $input
+     */
+    public function uploadImage($input)
+    {
+        $avatar = $input['link_document'];
+
+        if (isset($input['link_document']) && !empty($input['link_document'])) {
+            $fileName = time().$avatar->getClientOriginalName();
+
+            $this->storage->put($this->upload_path.$fileName, file_get_contents($avatar->getRealPath()));
+
+            $input = array_merge($input, ['link_document' => $fileName]);
+
+            return $input;
+        }
+    }
+
+    /**
+     * Destroy Old Image.
+     *
+     * @param int $id
+     */
+    public function deleteOldFile($model)
+    {
+        $fileName = $model->featured_image;
+
+        return $this->storage->delete($this->upload_path.$fileName);
     }
 }

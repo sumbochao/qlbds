@@ -14,7 +14,9 @@ class CreateDocumentsTable extends Migration
     public function up()
     {
         Schema::create('documents', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->string('name', 255);
+            $table->text('link_document')->nullable();
             $table->timestamps();
         });
     }

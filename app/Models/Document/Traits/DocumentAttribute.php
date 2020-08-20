@@ -17,8 +17,9 @@ trait DocumentAttribute
      */
     public function getActionButtonsAttribute()
     {
-        return '<div class="btn-group action-btn"> {$this->getEditButtonAttribute("edit-document", "admin.documents.edit")}
-                {$this->getDeleteButtonAttribute("delete-document", "admin.documents.destroy")}
-                </div>';
+                return '<div class="btn-group action-btn">'.
+                $this->getEditButtonAttribute('edit-document', 'admin.documents.edit').
+                $this->getDeleteButtonAttribute('delete-document', 'admin.documents.destroy').
+                '</div>';
     }
 }

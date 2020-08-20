@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Backend\Document\DocumentRepository;
 use App\Http\Requests\Backend\Document\ManageDocumentRequest;
-
+use Illuminate\Support\Facades\Storage;
 /**
  * Class DocumentsTableController.
  */
@@ -41,6 +41,14 @@ class DocumentsTableController extends Controller
             ->addColumn('created_at', function ($document) {
                 return Carbon::parse($document->created_at)->toDateString();
             })
+            ->addColumn('name', function ($document) {
+                return $document->name;
+            })
+            ->addColumn('link_document', function ($document) {
+                $url = 'img/link_document/'.$document->link_document;
+                return "<a href='".Storage::url($url)."'>".$document->link_document."</a>";
+            })
+         
             ->addColumn('actions', function ($document) {
                 return $document->action_buttons;
             })
