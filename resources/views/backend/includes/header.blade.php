@@ -2,9 +2,9 @@
 
     <a href="{{ route('frontend.index') }}" class="navbar-brand">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <!-- <span class="logo-mini">
+    <!-- <span class="logo-mini">
            {{ substr(app_name(), 0, 1) }}
-        </span> -->
+            </span> -->
 
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg">
@@ -14,13 +14,13 @@
             @if($settings->logo)
                 <img height="48" width="226" class="dark-logo" src="{{route('frontend.index')}}/img/site_logo/{{$settings->logo}}">
             @else --}}
-                {{ app_name() }}
-           {{--  @endif --}}
+            {{ app_name() }}
+            {{--  @endif --}}
         </span>
     </a>
 
     <nav class="navbar navbar-static-top" role="navigation">
-        <!-- <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+    <!-- <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">{{ trans('labels.general.toggle_navigation') }}</span>
         </a> -->
 
@@ -35,7 +35,7 @@
 
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li class="user-header">
-                            <img src="{{ access()->user()->picture }}" class="img-circle" alt="User Avatar" />
+                            <img src="{{ access()->user()->picture }}" class="img-circle" alt="User Avatar"/>
                             <p>
                                 {{-- access()->user()->name }} - {{ implode(", ", access()->user()->roles->lists('name')->toArray()) --}}
                                 <small>{{ trans('strings.backend.general.member_since') }} {{ access()->user()->created_at->format("m/d/Y") }}</small>
