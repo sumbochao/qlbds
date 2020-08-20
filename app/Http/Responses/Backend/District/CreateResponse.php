@@ -6,6 +6,12 @@ use Illuminate\Contracts\Support\Responsable;
 
 class CreateResponse implements Responsable
 {
+    protected $provinces;
+
+    public function __construct($provinces)
+    {
+        $this->provinces = $provinces;
+    }
     /**
      * To Response
      *
@@ -15,6 +21,8 @@ class CreateResponse implements Responsable
      */
     public function toResponse($request)
     {
-        return view('backend.districts.create');
+        return view('backend.districts.create')->with([
+            'provinces' => $this->provinces
+        ]);
     }
 }

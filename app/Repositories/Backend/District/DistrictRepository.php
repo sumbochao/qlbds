@@ -30,6 +30,7 @@ class DistrictRepository extends BaseRepository
         return $this->query()
             ->select([
                 config('module.districts.table').'.id',
+                config('module.districts.table').'.name',
                 config('module.districts.table').'.created_at',
                 config('module.districts.table').'.updated_at',
             ]);

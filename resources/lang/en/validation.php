@@ -186,6 +186,9 @@ return [
                 'link_document' => 'Tài liệu',
                 'is_active' => 'Active',
             ],
+            'districts' => [
+                'provinces' => 'Tỉnh/thành phố ',
+            ],
             'blogs' => [
                 'title' => 'Blog Title',
                 'category' => 'Blog Category',

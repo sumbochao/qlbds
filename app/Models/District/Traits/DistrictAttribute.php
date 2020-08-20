@@ -17,8 +17,9 @@ trait DistrictAttribute
      */
     public function getActionButtonsAttribute()
     {
-        return '<div class="btn-group action-btn"> {$this->getEditButtonAttribute("edit-district", "admin.districts.edit")}
-                {$this->getDeleteButtonAttribute("delete-district", "admin.districts.destroy")}
-                </div>';
+        return '<div class="btn-group action-btn">'.
+        $this->getEditButtonAttribute('edit-district', 'admin.districts.edit').
+        $this->getDeleteButtonAttribute('delete-district', 'admin.districts.destroy').
+        '</div>';
     }
 }

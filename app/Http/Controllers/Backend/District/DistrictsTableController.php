@@ -41,6 +41,9 @@ class DistrictsTableController extends Controller
             ->addColumn('created_at', function ($district) {
                 return Carbon::parse($district->created_at)->toDateString();
             })
+            ->addColumn('name', function ($district) {
+                return $district->name;
+            })
             ->addColumn('actions', function ($district) {
                 return $district->action_buttons;
             })

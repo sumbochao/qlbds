@@ -16,6 +16,7 @@ use App\Http\Requests\Backend\District\StoreDistrictRequest;
 use App\Http\Requests\Backend\District\EditDistrictRequest;
 use App\Http\Requests\Backend\District\UpdateDistrictRequest;
 use App\Http\Requests\Backend\District\DeleteDistrictRequest;
+use App\Models\Province\Province;
 
 /**
  * DistrictsController
@@ -55,7 +56,8 @@ class DistrictsController extends Controller
      */
     public function create(CreateDistrictRequest $request)
     {
-        return new CreateResponse('backend.districts.create');
+        $provinces = Province::getSelectData();
+        return new CreateResponse($provinces);
     }
     /**
      * Store a newly created resource in storage.
@@ -81,7 +83,8 @@ class DistrictsController extends Controller
      */
     public function edit(District $district, EditDistrictRequest $request)
     {
-        return new EditResponse($district);
+        $provinces = Province::getSelectData();
+        return new EditResponse($district,$provinces);
     }
     /**
      * Update the specified resource in storage.

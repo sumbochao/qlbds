@@ -6,8 +6,8 @@ use App\Models\ModelTrait;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Province\Traits\ProvinceAttribute;
 use App\Models\Province\Traits\ProvinceRelationship;
-
-class Province extends Model
+use App\Models\BaseModel;
+class Province extends BaseModel
 {
     use ModelTrait,
         ProvinceAttribute,

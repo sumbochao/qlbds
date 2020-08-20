@@ -22,6 +22,7 @@
                     <thead>
                         <tr>
                             <th>{{ trans('labels.backend.districts.table.id') }}</th>
+                            <th>{{ trans('labels.backend.districts.table.name') }}</th>
                             <th>{{ trans('labels.backend.districts.table.createdat') }}</th>
                             <th>{{ trans('labels.general.actions') }}</th>
                         </tr>
@@ -61,6 +62,7 @@
                 },
                 columns: [
                     {data: 'id', name: '{{config('module.districts.table')}}.id'},
+                    {data: 'name', name: '{{config('module.districts.table')}}.name'},
                     {data: 'created_at', name: '{{config('module.districts.table')}}.created_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],

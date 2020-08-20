@@ -288,8 +288,10 @@ return [
 	"edit" => "Edit District",
 	"management" => "District Management",
 	"title" => "Districts",
+	'name' => 'Tên Quận Huyện',
 	"table" => [
 	"id" => "Id",
+	'name' => 'Tên Quận Huyện',
 	"createdat" => "Ngày tạo",
 	],
 	],
